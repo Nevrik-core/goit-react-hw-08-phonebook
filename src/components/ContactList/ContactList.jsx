@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/contactsOperations';
-import { getContacts } from 'redux/selectors';
-import { getFilter } from 'redux/selectors';
+import { deleteContact } from 'redux/contacts/operations';
+import { selectAllContacts } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 
 import { ContactsTable, TableHeaders, TableRows, TableData, DeleteButton } from "./ContactList.styled";
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const contacts = useSelector(selectAllContacts);
+  const filter = useSelector(selectFilter);
 
   const findContacts = () => {
     const normalizedFilter = filter.toLowerCase();

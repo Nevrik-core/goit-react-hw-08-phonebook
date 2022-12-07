@@ -1,7 +1,7 @@
 
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { addContact } from "redux/contactsOperations";
+import { selectAllContacts } from 'redux/selectors';
+import { addContact } from "redux/contacts/operations";
 import { nanoid } from '@reduxjs/toolkit';
 
 import { toast } from 'react-toastify';
@@ -11,7 +11,7 @@ import { FormContainer, FromInput, SubmitButton } from "./ContactForm.styled";
 export function ContactForm() {
 
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectAllContacts);
 
 
  const onSubmitHandler = e => {

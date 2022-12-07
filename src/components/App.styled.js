@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-
+import { NavLink } from "react-router-dom";
 
 export const MainContainer = styled.div`
     min-height: 100vh;
@@ -8,4 +8,8 @@ export const MainContainer = styled.div`
     text-align: center;
     background-image: ${props => props.theme.gradients.vanilla};
   
+`;
+
+export const Link = styled(NavLink)`
+
 `;
