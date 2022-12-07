@@ -6,22 +6,12 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { ContactForm } from "./ContactForm/ContactForm";
-import { ContactList } from "./ContactList/ContactList";
-import { Filter } from "./Filter/Filter";
-
 import { refreshUser } from 'redux/auth/operations';
 
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {  MainContainer, Link } from "./App.styled";
-import { Loading } from './Loading/Loading';
-import { UserMenu } from "./UserMenu/UserMenu";
+import {  MainContainer } from "./App.styled";
 import { useAuth } from '../hooks/useAuth';
 
-
-// import { useGetContactsQuery } from '../redux/contactsSlice';
-import { Contacts } from "../pages/Contacts/Contacts";
 import { Layout } from "./Layout";
 
 const RegisterPage = lazy(() => import('../pages/Register'));
