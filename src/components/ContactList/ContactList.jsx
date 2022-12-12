@@ -10,6 +10,11 @@ export const ContactList = () => {
   const contacts = useSelector(selectAllContacts);
   const filter = useSelector(selectFilter);
 
+  // const onDeleteHandler = () => {
+  //   dispatch(deleteContact(el.id))
+  //  };
+  // }
+
   const findContacts = () => {
     const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
@@ -32,7 +37,7 @@ export const ContactList = () => {
         {filteredContacts.map(el => (
           <TableRows key={el.id}>
             <TableData>{el.name}</TableData>
-            <TableData>{el.phone}</TableData>
+            <TableData>{el.number}</TableData>
             <TableData><DeleteButton type="button" onClick={() => dispatch(deleteContact(el.id))}>delete</DeleteButton></TableData>
           </TableRows>
         ))}

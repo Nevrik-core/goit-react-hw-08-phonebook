@@ -39,4 +39,5 @@ export const SubmitButton = styled.button`
     }
     :active {
     transform: translateY(1px);
+    }
 `;

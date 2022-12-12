@@ -2,7 +2,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { selectAllContacts } from 'redux/selectors';
 import { addContact } from "redux/contacts/operations";
-import { nanoid } from '@reduxjs/toolkit';
+
 
 import { toast } from 'react-toastify';
 
@@ -13,33 +13,39 @@ export function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectAllContacts);
 
-
  const onSubmitHandler = e => {
     e.preventDefault();
-    console.dir(e.target.elements);
+    // console.dir(e.target.elements.name.value);
     const sameName = contacts.find(
       contact => contact.name.toLowerCase() === e.target.elements.name.value.toLowerCase()
     );
    
     if (sameName) {
-      return toast.error(`${sameName.name} is already in contacts`);
+      return toast.error(`${sameName.name} is already in contacts`, {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            newestOnTop: false,
+            closeOnClick: true,
+            rtl: false,
+            pauseOnFocusLoss: true,
+            draggable: true,
+            pauseOnHover: true,
+            theme: "colored"});
     } 
     dispatch(addContact({
-      id: nanoid(5),
-      name: e.target.elements.name.value,
-      phone: e.target.elements.phone.value
+      name: String(e.target.elements.name.value),
+      number: e.target.elements.number.value
     }));
-    e.target.reset();
+   e.target.reset();
   };
 
-  let formNameId = nanoid(3);
-  let formNumberId = nanoid(3);
 
   return (
     <FormContainer onSubmit={onSubmitHandler}>
-            <label htmlFor={formNameId}>Name</label>
+            <label>Name</label>
              <FromInput
-                  id={formNameId}
+                 
                   type="text"
                   placeholder="Type name"
                   name="name"
@@ -47,13 +53,13 @@ export function ContactForm() {
                   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                   required
       />
-      <label htmlFor={formNumberId} >Number</label>
+      <label>Number</label>
              <FromInput
                   
-                  id={formNumberId}
+                  
                   placeholder="Type number"
                   type="tel"
-                  name="phone"
+                  name="number"
                   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                   required
