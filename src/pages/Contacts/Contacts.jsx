@@ -11,7 +11,6 @@ import { selectLoading } from 'redux/contacts/selectors';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {  MainContainer } from "../../components/App.styled";
 import { Loading } from '../../components/Loading/Loading';
 
 
