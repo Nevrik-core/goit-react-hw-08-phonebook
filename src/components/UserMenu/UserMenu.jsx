@@ -6,6 +6,7 @@ import { SubmitButton, Wrapper, Username } from './UserMenu.styled';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
+  
 
   return (
     <Wrapper >
