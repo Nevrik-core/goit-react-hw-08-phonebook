@@ -15,7 +15,7 @@ import { authReducer } from './auth/slice';
 
 // import { configureStore } from '@reduxjs/toolkit';
 // import {contactsReducers} from './contactsSlice';
-import filterSlice from './filterSlice';
+import filterSlice from './contacts/filterSlice';
 
 const middleware = getDefaultMiddleware => [
   ...getDefaultMiddleware({

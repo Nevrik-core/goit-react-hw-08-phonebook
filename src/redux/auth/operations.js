@@ -27,6 +27,7 @@ export const register = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
+      toast.info('User with this email is already registered!', { autoClose: 2000, position: "top-center", hideProgressBar: true});
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -43,14 +44,15 @@ export const logIn = createAsyncThunk(
       const response = await axios.post('/users/login', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(response.data.token);
-      toast(`${response.data.user.name} welcome`, {autoClose: 2000, position: "top-center", hideProgressBar: false,})
+      toast.success(`${response.data.user.name}, welcome to your phonebook`, { autoClose: 2000, position: "top-center", hideProgressBar: true, });
       return response.data;
     } catch (error) {
+      console.log(error);
+      toast.error(`Wrong login or password, please check your input.`, { autoClose: 2000, position: "top-center", hideProgressBar: true, });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
 /*
  * POST @ /users/logout
  * headers: Authorization: Bearer token
@@ -60,7 +62,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     await axios.post('/users/logout');
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
-    
+    toast.warn(`Successfully logged out`, { autoClose: 2000, position: "top-center", hideProgressBar: true, theme: "dark" });
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }

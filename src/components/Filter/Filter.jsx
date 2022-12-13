@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { filterContacts } from 'redux/filterSlice';
+import { filterContacts } from 'redux/contacts/filterSlice';
 
 import { SearchInput } from "./Filter.styled"
 

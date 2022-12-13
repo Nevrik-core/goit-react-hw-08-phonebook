@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
-import { selectAllContacts } from 'redux/selectors';
-import { selectFilter } from 'redux/selectors';
+import { selectAllContacts } from 'redux/contacts/selectors';
+import { selectFilter } from 'redux/contacts/selectors';
 
 import { ContactsTable, TableHeaders, TableRows, TableData, DeleteButton } from "./ContactList.styled";
 

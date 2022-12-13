@@ -1,6 +1,6 @@
 
 import { useSelector, useDispatch } from 'react-redux';
-import { selectAllContacts } from 'redux/selectors';
+import { selectAllContacts } from 'redux/contacts/selectors';
 import { addContact } from "redux/contacts/operations";
 
 

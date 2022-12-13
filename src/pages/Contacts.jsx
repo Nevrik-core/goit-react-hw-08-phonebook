@@ -1,6 +1,6 @@
-import { ContactForm } from "../../components/ContactForm/ContactForm";
-import { ContactList } from "../../components/ContactList/ContactList";
-import { Filter } from "../../components/Filter/Filter";
+import { ContactForm } from "../components/ContactForm/ContactForm";
+import { ContactList } from "../components/ContactList/ContactList";
+import { Filter } from "../components/Filter/Filter";
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -9,9 +9,9 @@ import { selectAllContacts } from 'redux/contacts/selectors';
 import { selectLoading } from 'redux/contacts/selectors';
 
 
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Loading } from '../../components/Loading/Loading';
+import { Loading } from '../components/Loading/Loading';
 
 
 // import { useGetContactsQuery } from '../../redux/contactsSlice';
@@ -42,9 +42,7 @@ export default function Contacts() {
         </>
 
         {/* налаштування tostify  */}
-   <ToastContainer 
-            
-            />
+   {/* <ToastContainer/> */}
     </div>
     )
 }
